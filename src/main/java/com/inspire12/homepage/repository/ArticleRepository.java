@@ -12,7 +12,7 @@ public interface ArticleRepository extends JpaRepository<Article, String> {
     List<Article> findAllByBoardId(String boardId);
 
     @Query("select a.userId, a.title from Article a where a.userId=:userId")
-    List<Tuple> selectDistict(@Param("userId") long userId);
+    List<Tuple> selectByUserId(@Param("userId") long userId);
 
     @Query("select a.userId from Article a where a.userId=:userId")
     List<Article> selectAll(@Param("userId") long userId);
